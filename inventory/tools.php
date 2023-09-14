@@ -45,8 +45,8 @@ function delete($sql) {
 /**
  * Fungsi ini untuk mengenerate kode barang
  *
- * @param String $kategori
- * @return String $kodeKategori
+ * @param int id_vendor
+ * @return String $kodebarang
  */
 function generateKodeBarang($id_vendor){
     $sql="SELECT nama_vendor FROM vendor where id_vendor = '$id_vendor'";
