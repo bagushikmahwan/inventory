@@ -31,9 +31,9 @@
 
                 if(isset($_POST["cari"])){
                     $cari = $_POST["cari"];
-                    $sql="SELECT v.*, COUNT(b.id_barang) as jmlbuku FROM vendor v LEFT JOIN barang b ON v.id_vendor=b.id_vendor where v.nama_vendor like '%$cari%' GROUP BY v.id_vendor ;";
+                    $sql="SELECT v.*, COUNT(b.id_barang) as jmlbrg FROM vendor v LEFT JOIN barang b ON v.id_vendor=b.id_vendor where v.nama_vendor like '%$cari%' GROUP BY v.id_vendor ;";
                 }else{
-                    $sql="SELECT v.*, COUNT(b.id_barang) as jmlbuku FROM vendor v LEFT JOIN barang b ON v.id_vendor=b.id_vendor GROUP BY v.id_vendor;";
+                    $sql="SELECT v.*, COUNT(b.id_barang) as jmlbrg FROM vendor v LEFT JOIN barang b ON v.id_vendor=b.id_vendor GROUP BY v.id_vendor;";
                 }
 
                 
@@ -47,7 +47,7 @@
                     
                         <td align="center"> <?php echo $data['id_vendor']; ?> </td>
                         <td align="center"> <?php echo $data['nama_vendor']; ?> </td>
-                        <td align="center"> <?php echo $data['jmlbuku']; ?> </td>
+                        <td align="center"> <?php echo $data['jmlbrg']; ?> </td>
                         <form action="formEdit.php" method="post" >
                         <td><input type="hidden" value="<?php echo $data['id_vendor']; ?>" name="id_vendor"><button type="submit">Edit</button></form></td>
                         <form action="delete.php" method="post" >
