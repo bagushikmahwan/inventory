@@ -48,8 +48,11 @@ function delete($sql) {
  * @param String $kategori
  * @return String $kodeKategori
  */
-function generateKodeBarang($nama_barang){
-    $hurufdepan = substr($nama_barang,0,3);    // Mengambil huruf depan 0=start, 1=jml karakter yg diambil
+function generateKodeBarang($id_vendor){
+    $sql="SELECT nama_vendor FROM vendor where id_vendor = '$id_vendor'";
+    $result=select($sql);
+    $nama_vendor = $result->fetch_assoc();
+    $hurufdepan = substr($nama_vendor['nama_vendor'],0,3);    // Mengambil huruf depan 0=start, 3=jml karakter yg diambil
     $hurufdepanbesar = strtoupper($hurufdepan);         // Menjadikan huruf besar 
     
     $sql="SELECT kode_barang FROM barang where kode_barang like '$hurufdepanbesar%' ORDER BY id_barang DESC LIMIT 1";
