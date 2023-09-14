@@ -1,6 +1,6 @@
 <?php
 // Include CONFIG
-include('config.php');  // supaya connect database
+include('config.php');  // supaya connect database otomatis $conn bisa diakses disini
 
 //fungsi INSERT
 function insert($sql,$location) {
