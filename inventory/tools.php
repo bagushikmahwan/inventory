@@ -1,10 +1,10 @@
 <?php
 // Include CONFIG
-include('config.php');
+include('config.php');  // supaya connect database
 
 //fungsi INSERT
 function insert($sql,$location) {
-    global $conn;     // global untuk membuat $conn menjadi variabel global/bisa diakses di fungsi insert
+    global $conn;     // global untuk membuat $conn yg ada pada config.php menjadi variabel global/bisa diakses di fungsi insert
     if ($conn->query($sql)) {
         echo "insert berhasil";
         header("location: http://localhost/inventory/".$location);
